@@ -34,6 +34,7 @@ Insert into employee values(1,'ragul', 'miami', 6000, 2.5000);
 Insert into employee values(2,'mathan', 'Tampa', 10000, 25.50000);
 insert into employee (id,name,bonus) values(3,'abi',40.5)
 insert into employee (id,address) values(4,'NJ')
+--INSERT OR REPLACE, REPLACE INTO and INSERT OR IGNORE.
 --Select tables 
 select * from employee
 
@@ -132,7 +133,7 @@ select * from EMPL where dept != 'SDE'
 
 
 --Aggregate functions 
---to find max,min,sum,count,avg salary of emp
+--to find max,min,sum,count,avg salary of emp,GROUP_CONCAT(name)
 select max(salary) as maximum,
 min(salary) as minimum,
 sum(salary) as total,
@@ -159,6 +160,8 @@ select * from EMPL where location like 'f%'
 -- both clause used for filtering rows based on cloumns
 --having is a alternate key used along with aggregate functions to filter, 
 --where can't be used with aggregate
+--a WHERE statement in a GROUP BY will only group the fields that match the criteria:
+--A HAVING statement will filter the resulting grouped data set using the result of the aggregation:
 select * from EMPL where location='fort'
 select sum(salary) as total,dept from EMPL group by dept having sum(salary) > 10000
 select sum(salary) as total,location from EMPL group by location having sum(salary) > 100000 
