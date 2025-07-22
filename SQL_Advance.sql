@@ -89,7 +89,7 @@ select *,RANK()
 over(order by salary desc) as Rnk
 from emp_sal
 
---In sql, The alias is the “table name” for your subquery’s output. 
+--In sql, The alias is the ï¿½table nameï¿½ for your subqueryï¿½s output. 
 --Without it, SQL has no identifier for that rowset and will fail to parse your query.
 select *  from (select *, rank()
 over (order by salary desc) as rnk
@@ -150,3 +150,20 @@ with sal_ord as(
 select *,DENSE_RANK() over(order by salary desc) as sal_rnk from emp_sal )
 select * from sal_ord where sal_rnk =3
 
+----VIEW IN SQL
+
+A View in SQL is a virtual table created by a query.
+views do not store data physically but instead 
+store a query that generates the data on demand.
+
+
+
+SELECT * FROM EMPLOYEES
+
+CREATE VIEW EMP_INFO AS 
+SELECT EMPLOYEE_ID,DEPARTMENT_ID,SALARY FROM EMPLOYEES
+
+
+SELECT * FROM EMP_INFO
+
+DROP VIEW EMP_INFO
